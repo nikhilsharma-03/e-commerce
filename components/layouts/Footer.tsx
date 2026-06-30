@@ -3,6 +3,7 @@ import React from 'react'
 import "./Footer.css"
 import { TiSocialFacebook } from 'react-icons/ti'
 import { RiInstagramLine } from 'react-icons/ri'
+import { footerData } from '@/data/footerData'
 
 const Footer : React.FC = () => {
   return (
@@ -23,8 +24,22 @@ const Footer : React.FC = () => {
             <RiInstagramLine />
           </div>
         </div>
+      </div>  
+      <div className="page_links">
+        {footerData.map((section,index) => (
+          <div className="link_column" key={index}>
+            <div className="column_title">{section.title}</div>
+            <ul>
+              {section.urlData.map((link,i) => (
+                <li key={i}>
+                  <a href={link.urlLink}>{link.urlTitle}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+        )}
       </div>
-      <div className="page_links"></div>
     </div>
     <div className="footer_bottom">
       <div className="copyright">
