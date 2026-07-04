@@ -4,9 +4,11 @@ import "./Header.css"
 import { BiHomeAlt } from "react-icons/bi";
 import { FaRegUser } from "react-icons/fa6";
 import { FiShoppingCart } from "react-icons/fi";
+import { useRouter } from 'next/navigation';
 
 
 const Header: React.FC = () => {
+  const navigate = useRouter();
   return (
     <>
     <div className="main">
@@ -16,7 +18,7 @@ const Header: React.FC = () => {
       </div>
       <div className="box2">
         <div className="user_icon"><FaRegUser /></div>
-        <div className="cart_icon"><FiShoppingCart /></div>
+        <div className="cart_icon"onClick={() => navigate.push("/cart")}><FiShoppingCart /></div>
       </div>
     </div>
     </>
